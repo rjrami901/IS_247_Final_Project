@@ -10,7 +10,6 @@ class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         List<Account> accounts = new ArrayList<>();
-        Stack<Double> stack = new Stack<>();
         Map<String, Double> expenses = new HashMap<>();
 
         try {
@@ -47,12 +46,11 @@ class Main {
             int choice = scanner.nextInt();
 
             switch (choice) {
-                case 1:
+                case 1 -> {
                     System.out.print("Enter the initial balance: ");
                     double initialBalance = scanner.nextDouble();
                     System.out.print("Choose account type (1 - Checking, 2 - Savings): ");
                     int accountType = scanner.nextInt();
-
                     if (accountType == 1) {
                         accounts.add(new CheckingAccount(initialBalance));
                     } else if (accountType == 2) {
@@ -60,17 +58,14 @@ class Main {
                     } else {
                         System.out.println("Invalid account type.");
                     }
-                    break;
-
-                case 2:
+                }
+                case 2 -> {
                     if (accounts.isEmpty()) {
                         System.out.println("No accounts found. Please create an account first.");
                         break;
                     }
-
                     System.out.print("Enter the account index: ");
                     int accountIndex = scanner.nextInt();
-
                     if (accountIndex >= 0 && accountIndex < accounts.size()) {
                         System.out.print("Enter the deposit amount: ");
                         double depositAmount = scanner.nextDouble();
@@ -79,37 +74,32 @@ class Main {
                     } else {
                         System.out.println("Invalid account index.");
                     }
-                    break;
-
-                case 3:
+                }
+                case 3 -> {
                     if (accounts.isEmpty()) {
                         System.out.println("No accounts found. Please create an account first.");
                         break;
                     }
-
                     System.out.print("Enter the account index: ");
-                    accountIndex = scanner.nextInt();
-
-                    if (accountIndex >= 0 && accountIndex < accounts.size()) {
+                    int accountIndex2 = scanner.nextInt();
+                    if (accountIndex2 >= 0 && accountIndex2 < accounts.size()) {
                         System.out.print("Enter the withdrawal amount: ");
                         double withdrawalAmount = scanner.nextDouble();
                         try {
-                            accounts.get(accountIndex).withdraw(withdrawalAmount);
-                            System.out.println("Withdrawal successful. New balance: " + accounts.get(accountIndex).getBalance());
+                            accounts.get(accountIndex2).withdraw(withdrawalAmount);
+                            System.out.println("Withdrawal successful. New balance: " + accounts.get(accountIndex2).getBalance());
                         } catch (InsufficientFundsException e) {
                             System.out.println("Error: " + e.getMessage());
                         }
                     } else {
                         System.out.println("Invalid account index.");
                     }
-                    break;
-
-                case 4:
+                }
+                case 4 -> {
                     if (accounts.isEmpty()) {
                         System.out.println("No accounts found. Please create an account first.");
                         break;
                     }
-
                     scanner.nextLine(); // Consume newline character
                     System.out.println("Enter your expenses (press enter to finish):");
                     String expenseName;
@@ -125,18 +115,14 @@ class Main {
                         expenses.put(expenseName, expenseAmount);
                         scanner.nextLine(); // Consume newline character
                     }
-
                     FinancialReport reportGenerator = new ReportGenerator();
                     reportGenerator.generateReport(accounts, user, expenses);
-                    break;
-
-                case 5:
+                }
+                case 5 -> {
                     exit = true;
                     System.out.println("Exiting Personal Finance Manager. Goodbye!");
-                    break;
-
-                default:
-                    System.out.println("Invalid choice. Please try again.");
+                }
+                default -> System.out.println("Invalid choice. Please try again.");
             }
         }
 
