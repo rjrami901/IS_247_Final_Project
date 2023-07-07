@@ -15,6 +15,10 @@ class User {
         return name;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public double getIncome() {
         return income;
     }

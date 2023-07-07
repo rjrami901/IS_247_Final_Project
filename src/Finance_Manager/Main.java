@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Map;
 
 class Main {
     public static void main(String[] args) {
@@ -31,6 +32,7 @@ class Main {
         User user = new User(name, age, income);
         System.out.println("User created successfully!");
         System.out.println("User: " + user.getName());
+        System.out.println("Age: " + user.getAge());
         System.out.println("Income: $" + user.getIncome());
 
         boolean exit = false;
@@ -108,8 +110,24 @@ class Main {
                         break;
                     }
 
-                    FinancialReport<Account> reportGenerator = new ReportGenerator();
-                    reportGenerator.generateReport(accounts);
+                    scanner.nextLine(); // Consume newline character
+                    System.out.println("Enter your expenses (press enter to finish):");
+                    String expenseName;
+                    double expenseAmount;
+                    while (true) {
+                        System.out.print("Expense name: ");
+                        expenseName = scanner.nextLine();
+                        if (expenseName.isEmpty()) {
+                            break;
+                        }
+                        System.out.print("Expense amount: $");
+                        expenseAmount = scanner.nextDouble();
+                        expenses.put(expenseName, expenseAmount);
+                        scanner.nextLine(); // Consume newline character
+                    }
+
+                    FinancialReport reportGenerator = new ReportGenerator();
+                    reportGenerator.generateReport(accounts, user, expenses);
                     break;
 
                 case 5:
