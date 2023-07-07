@@ -9,7 +9,7 @@ abstract class PersonalFinanceManager {
     }
 
     public static void staticMethod() {
-        System.out.println("This is a static method.");
+        System.out.println("Your finance report is completed. Thank you.");
     }
 
     public abstract void printUserInfo();
