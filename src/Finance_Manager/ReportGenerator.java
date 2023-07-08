@@ -15,7 +15,9 @@ import java.util.Map;
 class ReportGenerator implements FinancialReport {
     @Override
     public void generateReport(List<Account> accounts, User user, Map<String, Double> expenses) {
+        System.out.println("-----------------------------------------");
         System.out.println("Generating financial report...");
+        System.out.println("-----------------------------------------");
         System.out.println("User: " + user.getName());
         System.out.println("Age: " + user.getAge());
         System.out.println("Income: $" + user.getIncome());
@@ -31,12 +33,15 @@ class ReportGenerator implements FinancialReport {
             }
         }
 
+        System.out.println("-----------------------------------------");
         System.out.println("Total Money in Savings Account: $" + totalSavings);
         System.out.println("Total Money in Checking Account: $" + totalChecking);
+        System.out.println("-----------------------------------------");
 
         System.out.println("Expenses:");
         for (Map.Entry<String, Double> entry : expenses.entrySet()) {
             System.out.println(entry.getKey() + ": $" + entry.getValue());
         }
+        System.out.println("-----------------------------------------");
     }
 }
