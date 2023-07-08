@@ -1,8 +1,6 @@
 /*
 File: ReportGenerator.java
 Name: Riya Rami
-Date: 07/07/2023
-Instructor: Prof. Shiva Sharma
 Email: riyar1@umbc.edu
 */
 
@@ -11,7 +9,9 @@ package Finance_Manager;
 import java.util.List;
 import java.util.Map;
 
-// Financial report generator class implementing FinancialReport interface
+/* Financial report generator class implementing FinancialReport interface
+* This class generates the user information, including name, age, and income,
+* the total checking and savings amount, and a list of all the expenses the user added. */
 public class ReportGenerator implements FinancialReport {
     @Override
     public void generateReport(List<Account> accounts, User user, Map<String, Double> expenses) {

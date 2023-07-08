@@ -1,14 +1,12 @@
 /*
 File: Account.java
 Name: Riya Rami
-Date: 07/07/2023
-Instructor: Prof. Shiva Sharma
 Email: riyar1@umbc.edu
 */
 
 package Finance_Manager;
 
-// Abstract class representing a financial account
+/* Abstract class representing a financial account */
 public abstract class Account {
     protected double balance;
 

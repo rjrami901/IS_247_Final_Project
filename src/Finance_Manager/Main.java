@@ -1,8 +1,6 @@
 /*
 File: Main.java
 Name: Riya Rami
-Date: 07/07/2023
-Instructor: Prof. Shiva Sharma
 Email: riyar1@umbc.edu
 */
 
@@ -20,15 +18,10 @@ public class Main {
         List<Account> accounts = new ArrayList<>();
         Map<String, Double> expenses = new HashMap<>();
 
-        try {
-            throw new RuntimeException("Sample Exception");
-        } catch (Exception e) {
-            System.out.println("Exception caught: " + e.getMessage());
-        }
-
         int factorialResult = calculateFactorial(5);
         System.out.println("Factorial of 5: " + factorialResult);
 
+        /* Asks for user information */
         System.out.print("Enter your name: ");
         String name = scanner.nextLine();
         System.out.print("Enter your age: ");
@@ -36,6 +29,7 @@ public class Main {
         System.out.print("Enter your income: $");
         double income = scanner.nextDouble();
 
+        /* Prints user information */
         User user = new User(name, age, income);
         System.out.println("User created successfully!");
         System.out.println("User: " + user.getName());
@@ -44,6 +38,7 @@ public class Main {
 
         boolean exit = false;
         while (!exit) {
+            /* Loops these options once you complete an option until you choose to exit */
             System.out.println();
             System.out.println("Personal Finance Manager");
             System.out.println("1. Create a new account");
@@ -55,6 +50,8 @@ public class Main {
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
 
+            /* Asks to enter initial balance and add to either checking or savings account.
+            If you type something else, then it will show Invalid account message. */
             switch (choice) {
                 case 1 -> {
                     System.out.print("Enter the initial balance: $");
@@ -69,6 +66,10 @@ public class Main {
                         System.out.println("Invalid account type.");
                     }
                 }
+
+                /* Asks to enter account index and then enter the amount you want to deposit.
+                Then adds the new balance by adding the deposit amount and the previous balance amount from
+                checking account. */
                 case 2 -> {
                     if (accounts.isEmpty()) {
                         System.out.println("No accounts found. Please create an account first.");
@@ -85,6 +86,10 @@ public class Main {
                         System.out.println("Invalid account index.");
                     }
                 }
+
+                /* Asks to enter account index and then enter the amount you want to withdraw.
+                Then adds the new balance by subtracting the previous balance amount and the withdraw amount from
+                checking account. */
                 case 3 -> {
                     if (accounts.isEmpty()) {
                         System.out.println("No accounts found. Please create an account first.");
@@ -105,6 +110,8 @@ public class Main {
                         System.out.println("Invalid account index.");
                     }
                 }
+
+                /* Asks what expenses you want to add and the amount of those expenses */
                 case 4 -> {
                     scanner.nextLine(); //
                     System.out.println("Enter your expenses (press enter to finish):");
@@ -123,6 +130,7 @@ public class Main {
                     }
                 }
 
+                /* Prints the financial report from the FinancialReport class */
                 case 5 -> {
                     if (accounts.isEmpty()) {
                         System.out.println("No accounts found. Please create an account first.");

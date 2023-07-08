@@ -1,14 +1,13 @@
 /*
 File: SavingsAccount.java
 Name: Riya Rami
-Date: 07/07/2023
-Instructor: Prof. Shiva Sharma
 Email: riyar1@umbc.edu
 */
 
 package Finance_Manager;
 
-// Savings account class inheriting from Account
+/* Savings account class inheriting from Account
+* This class adds your balance to your Savings Account */
 public class SavingsAccount extends Account {
     public SavingsAccount(double balance) {
         super(balance);
