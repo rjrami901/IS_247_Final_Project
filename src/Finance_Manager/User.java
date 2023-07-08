@@ -8,7 +8,7 @@ Email: riyar1@umbc.edu
 
 package Finance_Manager;
 
-class User {
+public class User {
     private final String name;
     private final int age;
     private final double income;

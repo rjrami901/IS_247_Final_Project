@@ -9,7 +9,7 @@ Email: riyar1@umbc.edu
 package Finance_Manager;
 
 // Abstract class representing a financial account
-abstract class Account {
+public abstract class Account {
     protected double balance;
 
     public Account(double balance) {

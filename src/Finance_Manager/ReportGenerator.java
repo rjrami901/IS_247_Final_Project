@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 // Financial report generator class implementing FinancialReport interface
-class ReportGenerator implements FinancialReport {
+public class ReportGenerator implements FinancialReport {
     @Override
     public void generateReport(List<Account> accounts, User user, Map<String, Double> expenses) {
         System.out.println("-----------------------------------------");

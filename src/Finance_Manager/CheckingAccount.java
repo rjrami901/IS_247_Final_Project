@@ -9,7 +9,7 @@ Email: riyar1@umbc.edu
 package Finance_Manager;
 
 // Checking account class inheriting from Account
-class CheckingAccount extends Account {
+public class CheckingAccount extends Account {
     public CheckingAccount(double balance) {
         super(balance);
     }

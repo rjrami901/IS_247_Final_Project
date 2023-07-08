@@ -9,7 +9,7 @@ Email: riyar1@umbc.edu
 package Finance_Manager;
 
 // Savings account class inheriting from Account
-class SavingsAccount extends Account {
+public class SavingsAccount extends Account {
     public SavingsAccount(double balance) {
         super(balance);
     }
